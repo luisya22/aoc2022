@@ -1,0 +1,26 @@
+package day{{.Day}}
+
+import (
+    "github.com/luisya22/aoc2022/utils"
+    "github.com/spf13/cobra"
+    "log"
+    "strings"
+)
+
+var {{.Part}}Cmd = &cobra.Command{
+    Use: "{{.Part}}",
+    Short: "Day {{.Day}}, Problem {{.PartUpperCase}}",
+    Run: func(cmd *cobra.Command, args []string) {
+
+        inputStr := utils.GetFileAsString("cmd/day{{.Day}}/input.txt")
+        splitStr := strings.Split(inputStr, "\n\n")
+
+        result := part{{.PartUpperCase}}(splitStr)
+
+        log.Println("Result {{.PartUpperCase}}: ", result)
+    },
+}
+
+func part{{.PartUpperCase}}(inputStr []string) int {
+    return 0
+}
