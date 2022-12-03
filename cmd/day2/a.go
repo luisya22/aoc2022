@@ -40,25 +40,21 @@ func partA(inputStr []string) int {
 
 		elfThrow, err := transformThrow(play[0])
 		if err != nil {
-			log.Println("Here 1")
 			log.Fatal(err.Error())
 		}
 
 		playerThrow, err := transformThrow(play[1])
 		if err != nil {
-			log.Println("Here 2")
 			log.Fatal(err.Error())
 		}
 
 		tempPlayPoints, err := getGamePoints(elfThrow, playerThrow)
 		if err != nil {
-			log.Println("Here 3")
 			log.Fatal(err.Error())
 		}
 
 		tempThrowPoints, err := getThrowPoints(playerThrow)
 		if err != nil {
-			log.Println("Here 4")
 			log.Fatal(err.Error())
 		}
 
