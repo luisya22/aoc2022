@@ -54,7 +54,6 @@ func partB(inputStr []string) int {
 		if contained(elf1Min, elf2Min, elf2Max) || contained(elf1Max, elf2Min, elf2Max) ||
 			contained(elf2Min, elf1Min, elf1Max) || contained(elf2Max, elf1Min, elf1Max) {
 
-			log.Println(elf1, elf2)
 			total += 1
 		}
 	}
