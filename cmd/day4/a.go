@@ -23,9 +23,8 @@ var aCmd = &cobra.Command{
 }
 
 func partA(inputStr []string) int {
-	log.Println(inputStr[0])
-
 	total := 0
+
 	for _, str := range inputStr {
 		splitStr := strings.Split(str, ",")
 

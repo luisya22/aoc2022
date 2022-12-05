@@ -23,7 +23,6 @@ var bCmd = &cobra.Command{
 }
 
 func partB(inputStr []string) int {
-	log.Println(inputStr[0])
 
 	total := 0
 	for _, str := range inputStr {
