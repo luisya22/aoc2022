@@ -1,6 +1,7 @@
 package day5
 
 import (
+	"bufio"
 	"github.com/luisya22/aoc2022/fileman"
 	"github.com/spf13/cobra"
 	"log"
@@ -13,32 +14,40 @@ var aCmd = &cobra.Command{
 	Short: "Day 5, Problem A",
 	Run: func(cmd *cobra.Command, args []string) {
 
-		inputStr := fileman.GetFileAsString("cmd/day5/inputTestLarge.txt")
-		splitStr := strings.Split(inputStr, "\n\n")
+		scanner, inputFile := fileman.GetFileBuffer("cmd/day5/input.txt")
+		defer inputFile.Close()
 
-		result := partA(splitStr)
+		result := partA(scanner)
 
 		log.Println("Result A: ", result)
 	},
 }
 
-func partA(inputStr []string) string {
-	cratesData := strings.Split(inputStr[0], "\n")
-	movementData := strings.Split(inputStr[1], "\n")
-	var topCrate string
+func partA(inputScanner *bufio.Scanner) string {
+	var cratesData []string
+
+	for inputScanner.Scan() {
+		if inputScanner.Text() != "" {
+			cratesData = append(cratesData, inputScanner.Text())
+		} else {
+			break
+		}
+	}
+
+	var topCrates string
 
 	// Process Crate Data
 	stacks := buildStacks(cratesData)
 	// Process movements
-	for i, dataLine := range movementData {
+	for inputScanner.Scan() {
 
-		dataLine = strings.Replace(dataLine, "move ", "", -1)
+		dataLine := strings.Replace(inputScanner.Text(), "move ", "", -1)
 		dataLine = strings.Replace(dataLine, "from ", "", -1)
 		dataLine = strings.Replace(dataLine, "to ", "", -1)
 		dataStr := strings.Split(dataLine, " ")
 
 		if len(dataStr) != 3 {
-			log.Fatalf("wrong movement data format on line %v: %v", i+1, dataLine)
+			log.Fatalf("wrong movement data format: %v", inputScanner.Text())
 		}
 
 		amount, err := strconv.Atoi(dataStr[0])
@@ -60,8 +69,8 @@ func partA(inputStr []string) string {
 	}
 
 	for _, stack := range stacks {
-		topCrate += stack.Data[len(stack.Data)-1]
+		topCrates += stack.Data[len(stack.Data)-1]
 	}
 
-	return topCrate
+	return topCrates
 }
