@@ -2,7 +2,7 @@ package day2
 
 import (
 	"errors"
-	"github.com/luisya22/aoc2022/utils"
+	"github.com/luisya22/aoc2022/fileman"
 	"github.com/spf13/cobra"
 	"log"
 	"strings"
@@ -13,7 +13,7 @@ var aCmd = &cobra.Command{
 	Short: "Day 2, Problem A",
 	Run: func(cmd *cobra.Command, args []string) {
 
-		inputStr := utils.GetFileAsString("cmd/day2/input.txt")
+		inputStr := fileman.GetFileAsString("cmd/day2/input.txt")
 		splitStr := strings.Split(inputStr, "\n")
 
 		result := partA(splitStr)

@@ -4,7 +4,7 @@ Copyright © 2022 NAME HERE <EMAIL ADDRESS>
 package day1
 
 import (
-	"github.com/luisya22/aoc2022/utils"
+	"github.com/luisya22/aoc2022/fileman"
 	"log"
 	"strconv"
 	"strings"
@@ -17,7 +17,7 @@ var bCmd = &cobra.Command{
 	Use:   "b",
 	Short: "Day 1, Problem B",
 	Run: func(cmd *cobra.Command, args []string) {
-		inputStr := utils.GetFileAsString("cmd/day1/input.txt")
+		inputStr := fileman.GetFileAsString("cmd/day1/input.txt")
 		splitStr := strings.Split(inputStr, "\n\n")
 
 		result := partB(splitStr)
