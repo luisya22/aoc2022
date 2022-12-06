@@ -2,7 +2,6 @@ package day5
 
 import (
 	"github.com/luisya22/aoc2022/fileman"
-	"os"
 	"testing"
 )
 
@@ -35,11 +34,9 @@ func TestDay5ChallengeResultA(t *testing.T) {
 		testsMap = append(testsMap, testDataLarge)
 	}
 
-	t.Log(os.Getwd())
-
 	for _, tt := range testsMap {
 		t.Run(tt.name, func(t *testing.T) {
-			scanner, inputFile := fileman.GetFileBuffer(tt.filepath)
+			scanner, inputFile := fileman.GetFileLineBuffer(tt.filepath)
 			defer inputFile.Close()
 
 			result := partA(scanner)
@@ -82,7 +79,7 @@ func TestDay5ChallengeResultB(t *testing.T) {
 
 	for _, tt := range testsMap {
 		t.Run(tt.name, func(t *testing.T) {
-			scanner, inputFile := fileman.GetFileBuffer(tt.filepath)
+			scanner, inputFile := fileman.GetFileLineBuffer(tt.filepath)
 			defer inputFile.Close()
 
 			result := partB(scanner)

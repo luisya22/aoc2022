@@ -14,7 +14,7 @@ var bCmd = &cobra.Command{
 	Short: "Day 5, Problem B",
 	Run: func(cmd *cobra.Command, args []string) {
 
-		scanner, inputFile := fileman.GetFileBuffer("cmd/day5/inputTestLarge.txt")
+		scanner, inputFile := fileman.GetFileLineBuffer("cmd/day5/inputTestLarge.txt")
 		defer inputFile.Close()
 
 		result := partB(scanner)
