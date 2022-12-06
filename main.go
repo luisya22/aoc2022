@@ -5,7 +5,7 @@ package main
 
 import "github.com/luisya22/aoc2022/cmd"
 
-//go:generate go run ./gen 5
+//go:generate go run ./gen 6
 func main() {
 	cmd.Execute()
 }
