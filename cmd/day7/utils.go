@@ -17,12 +17,11 @@ func calculateDirectorySize(currentDirectory string, inputScanner *bufio.Scanner
 			stackDir := *directoryStack.Peek()
 			currDirSplit := strings.Split(currentDirectory, "/")
 
+			directoryStack.Pop()
+
 			if stackDir == currDirSplit[len(currDirSplit)-1] {
-				directoryStack.Pop()
 				break
 			}
-
-			directoryStack.Pop()
 		} else if strings.HasPrefix(terminalLine, "$ cd") {
 			splitCommand := strings.Split(inputScanner.Text(), " ")
 			directoryStack.Push(splitCommand[2])
