@@ -13,3 +13,11 @@ func (s *Stack[T]) Pop() T {
 	s.Data = s.Data[:len(s.Data)-1]
 	return removedItem
 }
+
+func (s *Stack[T]) Peek() *T {
+	if len(s.Data) > 0 {
+		return &s.Data[len(s.Data)-1]
+	}
+
+	return nil
+}

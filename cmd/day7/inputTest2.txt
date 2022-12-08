@@ -1,0 +1,18 @@
+$ cd /
+$ ls
+dir a
+dir x
+1 b.txt
+2 c.txt
+$ cd a
+$ ls
+5 d.txt
+dir b
+$ cd b
+$ ls
+10 d.txt
+$ cd ..
+$ cd ..
+$ cd x
+$ ls
+100001 large.txt
