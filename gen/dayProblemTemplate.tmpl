@@ -1,10 +1,10 @@
 package day{{.Day}}
 
 import (
-    "github.com/luisya22/aoc2022/utils"
+    "bufio"
+    "github.com/luisya22/aoc2022/fileman"
     "github.com/spf13/cobra"
     "log"
-    "strings"
 )
 
 var {{.Part}}Cmd = &cobra.Command{
@@ -12,15 +12,15 @@ var {{.Part}}Cmd = &cobra.Command{
     Short: "Day {{.Day}}, Problem {{.PartUpperCase}}",
     Run: func(cmd *cobra.Command, args []string) {
 
-        inputStr := utils.GetFileAsString("cmd/day{{.Day}}/input.txt")
-        splitStr := strings.Split(inputStr, "\n\n")
+        scanner, inputFile := fileman.GetFileLineBuffer("cmd/day{{.Day}}/input.txt")
+        defer inputFile.Close()
 
-        result := part{{.PartUpperCase}}(splitStr)
+        result := part{{.PartUpperCase}}(scanner)
 
         log.Println("Result {{.PartUpperCase}}: ", result)
     },
 }
 
-func part{{.PartUpperCase}}(inputStr []string) int {
+func part{{.PartUpperCase}}(inputScanner *bufio.Scanner) int {
     return 0
 }
