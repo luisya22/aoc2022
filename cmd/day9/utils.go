@@ -17,54 +17,6 @@ func isNotTouching(head, tail position) bool {
 	return abs(head.y-tail.y) == 2 || abs(head.x-tail.x) == 2
 }
 
-func needsTopRight(headPosition, tailPosition position) bool {
-	if headPosition.y-1 > tailPosition.y && headPosition.x > tailPosition.x {
-		return true
-	}
-
-	if headPosition.x-1 > tailPosition.x && headPosition.y > tailPosition.y {
-		return true
-	}
-
-	return false
-}
-
-func needsBottomLeft(headPosition, tailPosition position) bool {
-	if headPosition.y+1 < tailPosition.y && headPosition.x < tailPosition.x {
-		return true
-	}
-
-	if headPosition.x+1 < tailPosition.x && headPosition.y < tailPosition.y {
-		return true
-	}
-
-	return false
-}
-
-func needsTopLeft(headPosition, tailPosition position) bool {
-	if headPosition.y-1 > tailPosition.y && headPosition.x < tailPosition.x {
-		return true
-	}
-
-	if headPosition.x+1 < tailPosition.x && headPosition.y > tailPosition.y {
-		return true
-	}
-
-	return false
-}
-
-func needsBottomRight(headPosition, tailPosition position) bool {
-	if headPosition.y+1 < tailPosition.y && headPosition.x > tailPosition.x {
-		return true
-	}
-
-	if headPosition.x-1 > tailPosition.x && headPosition.y < tailPosition.y {
-		return true
-	}
-
-	return false
-}
-
 func moveRope(headPosition, tailPosition position) position {
 
 	diffY := headPosition.y - tailPosition.y
