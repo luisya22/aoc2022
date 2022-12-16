@@ -11,6 +11,9 @@ import (
 	"github.com/luisya22/aoc2022/cmd/day1"
 	"github.com/luisya22/aoc2022/cmd/day10"
 	"github.com/luisya22/aoc2022/cmd/day11"
+	"github.com/luisya22/aoc2022/cmd/day12"
+	"github.com/luisya22/aoc2022/cmd/day13"
+	"github.com/luisya22/aoc2022/cmd/day14"
 	"github.com/luisya22/aoc2022/cmd/day2"
 	"github.com/luisya22/aoc2022/cmd/day3"
 	"github.com/luisya22/aoc2022/cmd/day4"
@@ -26,6 +29,9 @@ func addDays(root *cobra.Command) {
 	day1.AddCommandsTo(root)
 	day10.AddCommandsTo(root)
 	day11.AddCommandsTo(root)
+	day12.AddCommandsTo(root)
+	day13.AddCommandsTo(root)
+	day14.AddCommandsTo(root)
 	day2.AddCommandsTo(root)
 	day3.AddCommandsTo(root)
 	day4.AddCommandsTo(root)
